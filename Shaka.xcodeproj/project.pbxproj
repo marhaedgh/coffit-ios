@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A57EC7A2CC5375200A21F0A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57EC792CC5375200A21F0A /* RegisterViewController.swift */; };
 		4A9B1A552CBEA871004990F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B1A542CBEA871004990F9 /* ViewController.swift */; };
 		B1631F0B2A1759EA0050974F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0A2A1759EA0050974F /* AppDelegate.swift */; };
 		B1631F0D2A1759EA0050974F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0C2A1759EA0050974F /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A57EC792CC5375200A21F0A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4A9B1A4C2CBEA747004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4A9B1A4E2CBEA7B6004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4A9B1A502CBEA7C1004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A57EC782CC5375200A21F0A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				4A57EC792CC5375200A21F0A /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		8672EBB02C956E8600A73555 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 		B1631F3B2A175B290050974F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				4A57EC782CC5375200A21F0A /* Register */,
 				4A9B1A542CBEA871004990F9 /* ViewController.swift */,
 			);
 			path = Screen;
@@ -417,6 +428,7 @@
 				B1631F482A175C780050974F /* UIView+Extension.swift in Sources */,
 				B1631F4A2A175D5C0050974F /* UIButton+Extension.swift in Sources */,
 				B1631F5B2A175F860050974F /* UITextField+Extension.swift in Sources */,
+				4A57EC7A2CC5375200A21F0A /* RegisterViewController.swift in Sources */,
 				B1631F5D2A175F9C0050974F /* Date+Extension.swift in Sources */,
 				B1631F0D2A1759EA0050974F /* SceneDelegate.swift in Sources */,
 				4A9B1A552CBEA871004990F9 /* ViewController.swift in Sources */,
