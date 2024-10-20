@@ -79,6 +79,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let item = items[indexPath.item]
         let detailVC = DetailViewController(title: item.title, markdownContent: item.content)
         detailVC.modalPresentationStyle = .pageSheet
+        if let sheet = detailVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.selectedDetentIdentifier = .medium
+            
+            //뒤 배경 흐리게 제거 (기본 값은 모든 크기에서 배경 흐리게 됨)
+            //sheet.largestUndimmedDetentIdentifier = .medium
+        }
         present(detailVC, animated: true)
         
         // 읽음 표시 업데이트
