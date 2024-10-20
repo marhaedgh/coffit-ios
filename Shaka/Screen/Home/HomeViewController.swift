@@ -49,8 +49,8 @@ extension HomeViewController {
     private func fetchItems() {
         // TODO: Implement API call to fetch items
         items = [
-            HomeItem(title: "제목 1", summary: "한 줄 정리 1", keywords: ["키워드1", "키워드2"], date: Date(), isRead: false),
-            HomeItem(title: "제목 2", summary: "한 줄 정리 2", keywords: ["키워드3", "키워드4"], date: Date().addingTimeInterval(-86400), isRead: true),
+            HomeItem(title: "제목 1", summary: "한 줄 정리 1", keywords: ["키워드1", "키워드2"], date: Date(), isRead: false, content: Mock.markdown()),
+            HomeItem(title: "제목 2", summary: "한 줄 정리 2", keywords: ["키워드3", "키워드4"], date: Date().addingTimeInterval(-86400), isRead: true, content: Mock.markdown()),
         ]
         collectionView.reloadData()
     }
@@ -76,7 +76,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Handle cell selection (e.g., navigate to detail view)
+        let item = items[indexPath.item]
+        let detailVC = DetailViewController(title: item.title, markdownContent: item.content)
+        detailVC.modalPresentationStyle = .pageSheet
+        present(detailVC, animated: true)
+        
+        // 읽음 표시 업데이트
         items[indexPath.item].isRead = true
         collectionView.reloadItems(at: [indexPath])
     }

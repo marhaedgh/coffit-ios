@@ -13,4 +13,5 @@ struct HomeItem {
     let keywords: [String]
     let date: Date
     var isRead: Bool
+    var content: String
 }

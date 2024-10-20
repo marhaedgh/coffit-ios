@@ -11,6 +11,9 @@
 		4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */; };
 		4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */; };
 		4AF0FC452CC5500E0064C265 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC442CC5500E0064C265 /* HomeItem.swift */; };
+		4AF0FC482CC55CCC0064C265 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC472CC55CCC0064C265 /* DetailViewController.swift */; };
+		4AF0FC4B2CC55DFD0064C265 /* MarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */; };
+		4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC4C2CC55E850064C265 /* Mock.swift */; };
 		B1631F0B2A1759EA0050974F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0A2A1759EA0050974F /* AppDelegate.swift */; };
 		B1631F0D2A1759EA0050974F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0C2A1759EA0050974F /* SceneDelegate.swift */; };
 		B1631F142A1759EB0050974F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1631F132A1759EB0050974F /* Assets.xcassets */; };
@@ -60,6 +63,8 @@
 		4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AF0FC442CC5500E0064C265 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		4AF0FC472CC55CCC0064C265 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4AF0FC4C2CC55E850064C265 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		B1631F072A1759EA0050974F /* Shaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1631F0A2A1759EA0050974F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1631F0C2A1759EA0050974F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF0FC4B2CC55DFD0064C265 /* MarkdownKit in Frameworks */,
 				B1AD99832BC2EC80005AA45B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +132,7 @@
 				4AF0FC432CC54FF20064C265 /* Models */,
 				4AF0FC3F2CC54FAF0064C265 /* Cells */,
 				4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */,
+				4AF0FC4C2CC55E850064C265 /* Mock.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -144,6 +151,14 @@
 				4AF0FC442CC5500E0064C265 /* HomeItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4AF0FC462CC55CAD0064C265 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0FC472CC55CCC0064C265 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		8672EBB02C956E8600A73555 /* Networks */ = {
@@ -223,6 +238,7 @@
 			children = (
 				4A57EC782CC5375200A21F0A /* Register */,
 				4AF0FC3C2CC54F330064C265 /* Home */,
+				4AF0FC462CC55CAD0064C265 /* Detail */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -329,6 +345,7 @@
 			name = Shaka;
 			packageProductDependencies = (
 				B1AD99822BC2EC80005AA45B /* SnapKit */,
+				4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */,
 			);
 			productName = ZKFace;
 			productReference = B1631F072A1759EA0050974F /* Shaka.app */;
@@ -404,6 +421,7 @@
 			mainGroup = B1631EFE2A1759EA0050974F;
 			packageReferences = (
 				B1AD99812BC2EC80005AA45B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */,
 			);
 			productRefGroup = B1631F082A1759EA0050974F /* Products */;
 			projectDirPath = "";
@@ -457,6 +475,8 @@
 				B1631F522A175EDB0050974F /* UIResponder+Extension.swift in Sources */,
 				B1631F482A175C780050974F /* UIView+Extension.swift in Sources */,
 				B1631F4A2A175D5C0050974F /* UIButton+Extension.swift in Sources */,
+				4AF0FC482CC55CCC0064C265 /* DetailViewController.swift in Sources */,
+				4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */,
 				4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */,
 				B1631F5B2A175F860050974F /* UITextField+Extension.swift in Sources */,
 				4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */,
@@ -811,6 +831,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bmoliveira/MarkdownKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 		B1AD99812BC2EC80005AA45B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -822,6 +850,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */;
+			productName = MarkdownKit;
+		};
 		B1AD99822BC2EC80005AA45B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B1AD99812BC2EC80005AA45B /* XCRemoteSwiftPackageReference "SnapKit" */;
