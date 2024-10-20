@@ -13,7 +13,6 @@ class RegisterViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    private let titleLabel = UILabel()
     private let businessTypeSegmentedControl = UISegmentedControl(items: ["개인사업자", "법인사업자"])
     private let taxTypeSegmentedControl = UISegmentedControl(items: ["과세사업자", "면세사업자"])
     private let employeeCountPicker = UIPickerView()
@@ -39,6 +38,9 @@ extension RegisterViewController {
     private func setupUI() {
         view.backgroundColor = .secondarySystemBackground
         
+        navigationItem.title = "사업자 정보 입력"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         employeeCountPicker.delegate = self
         employeeCountPicker.dataSource = self
         
@@ -48,7 +50,7 @@ extension RegisterViewController {
     
     private func setLayout() {
         setScrollView()
-        setTitleLabel()
+        setContentView()
         setBusinessTypeSegmentedControl()
         setTaxTypeSegmentedControl()
         setEmployeeCountPicker()
@@ -71,23 +73,11 @@ extension RegisterViewController {
         }
     }
     
-    private func setTitleLabel() {
-        titleLabel.text = "사업자 정보 입력"
-        titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
-        
-        contentView.addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView).offset(20)
-            make.horizontalEdges.equalTo(contentView).inset(20)
-        }
-    }
-    
     private func setBusinessTypeSegmentedControl() {
         contentView.addSubview(businessTypeSegmentedControl)
         
         businessTypeSegmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(contentView).offset(30)
             make.horizontalEdges.equalTo(contentView).inset(20)
         }
     }
@@ -110,7 +100,7 @@ extension RegisterViewController {
         contentView.addSubview(employeeCountPicker)
         
         label.snp.makeConstraints { make in
-            make.top.equalTo(taxTypeSegmentedControl.snp.bottom).offset(20)
+            make.top.equalTo(taxTypeSegmentedControl.snp.bottom).offset(40)
             make.horizontalEdges.equalTo(contentView).inset(20)
         }
         
@@ -138,7 +128,6 @@ extension RegisterViewController {
             make.top.equalTo(label.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(contentView).inset(20)
             make.height.equalTo(150)
-            make.bottom.equalTo(contentView).offset(-20)
         }
     }
     
@@ -152,15 +141,24 @@ extension RegisterViewController {
             self?.submit()
         }))
         
+        button.isUserInteractionEnabled = true
+        
         contentView.addSubview(button)
         button.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(contentView).inset(20)
-            make.top.equalTo(industryPicker.snp.bottom).offset(20)
+            make.top.equalTo(industryPicker.snp.bottom).offset(40)
+            make.bottom.equalTo(contentView).offset(-20)
         }
     }
     
     @objc private func submit() {
-        // TODO: 사업자 정보 제출 로직 구현
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate,
+           
+           let window = sceneDelegate.window {
+            window.rootViewController = UINavigationController(rootViewController: HomeViewController())
+            window.makeKeyAndVisible()
+        }
     }
 }
 
