@@ -8,8 +8,12 @@
 import UIKit
 import SnapKit
 import MarkdownKit
+import Moya
 
 class DetailViewController: UIViewController {
+    
+    private var notificationId: Int = 0
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
@@ -26,8 +30,9 @@ class DetailViewController: UIViewController {
     
     private let markdownParser = MarkdownParser()
     
-    init(title: String) {
+    init(id: Int, title: String) {
         super.init(nibName: nil, bundle: nil)
+        self.notificationId = id
         titleLabel.text = title
     }
     
@@ -67,6 +72,23 @@ class DetailViewController: UIViewController {
     
     private func fetchData() {
         let markdownContent = "" // TODO: fetch from server
-        setupMarkdownContent(markdownContent)
+        let provider = MoyaProvider<NotificationAPI>()
+        
+        provider.request(.getNotification(id: notificationId)) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let baseResponse = try response.map(BaseResponse<GetNotificationResponse>.self)
+                    
+                    if let content = baseResponse.data?.content {
+                        self.setupMarkdownContent(content)
+                    }
+                } catch {
+                    print("Decoding error: \(error)")
+                }
+            case .failure(let error):
+                print("Network error: \(error)")
+            }
+        }
     }
 }

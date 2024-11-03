@@ -62,6 +62,7 @@ extension HomeViewController {
                     if let notifications = baseResponse.data {
                         self.items = notifications.map { item in
                             HomeItem(
+                                id: item.id,
                                 title: item.title,
                                 summary: item.lineSummary,
                                 keywords: item.keywords ?? [],
@@ -103,7 +104,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.item]
-        let detailVC = DetailViewController(title: item.title)
+        let detailVC = DetailViewController(id: item.id, title: item.title)
         
         detailVC.modalPresentationStyle = .pageSheet
         
