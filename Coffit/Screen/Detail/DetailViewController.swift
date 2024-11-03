@@ -26,10 +26,9 @@ class DetailViewController: UIViewController {
     
     private let markdownParser = MarkdownParser()
     
-    init(title: String, markdownContent: String) {
+    init(title: String) {
         super.init(nibName: nil, bundle: nil)
         titleLabel.text = title
-        setupMarkdownContent(markdownContent)
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +38,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchData()
     }
     
     private func setupUI() {
@@ -63,5 +63,10 @@ class DetailViewController: UIViewController {
         let attributedString = markdownParser.parse(content)
         textView.attributedText = attributedString
         textView.textColor = .label
+    }
+    
+    private func fetchData() {
+        let markdownContent = "" // TODO: fetch from server
+        setupMarkdownContent(markdownContent)
     }
 }
