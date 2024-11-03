@@ -80,8 +80,8 @@ class DetailViewController: UIViewController {
                 do {
                     let baseResponse = try response.map(BaseResponse<GetNotificationResponse>.self)
                     
-                    if let content = baseResponse.data?.content {
-                        self.setupMarkdownContent(content)
+                    if let data = baseResponse.data {
+                        self.setupMarkdownContent(data.content)
                     }
                 } catch {
                     print("Decoding error: \(error)")
