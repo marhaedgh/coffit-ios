@@ -19,8 +19,8 @@
 		B1631F142A1759EB0050974F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1631F132A1759EB0050974F /* Assets.xcassets */; };
 		B1631F172A1759EB0050974F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1631F152A1759EB0050974F /* LaunchScreen.storyboard */; };
 		B1631F222A1759EB0050974F /* CoffitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F212A1759EB0050974F /* CoffitTests.swift */; };
-		B1631F2C2A1759EB0050974F /* ShakaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F2B2A1759EB0050974F /* ShakaUITests.swift */; };
-		B1631F2E2A1759EB0050974F /* ShakaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F2D2A1759EB0050974F /* ShakaUITestsLaunchTests.swift */; };
+		B1631F2C2A1759EB0050974F /* CoffitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F2B2A1759EB0050974F /* CoffitUITests.swift */; };
+		B1631F2E2A1759EB0050974F /* CoffitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F2D2A1759EB0050974F /* CoffitUITestsLaunchTests.swift */; };
 		B1631F482A175C780050974F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F472A175C780050974F /* UIView+Extension.swift */; };
 		B1631F4A2A175D5C0050974F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F492A175D5C0050974F /* UIButton+Extension.swift */; };
 		B1631F4C2A175DC80050974F /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F4B2A175DC80050974F /* NSMutableAttributedString+Extension.swift */; };
@@ -73,8 +73,8 @@
 		B1631F1D2A1759EB0050974F /* CoffitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1631F212A1759EB0050974F /* CoffitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffitTests.swift; sourceTree = "<group>"; };
 		B1631F272A1759EB0050974F /* CoffitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1631F2B2A1759EB0050974F /* ShakaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakaUITests.swift; sourceTree = "<group>"; };
-		B1631F2D2A1759EB0050974F /* ShakaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1631F2B2A1759EB0050974F /* CoffitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffitUITests.swift; sourceTree = "<group>"; };
+		B1631F2D2A1759EB0050974F /* CoffitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1631F472A175C780050974F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B1631F492A175D5C0050974F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B1631F4B2A175DC80050974F /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 		B1631F2A2A1759EB0050974F /* CoffitUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B1631F2B2A1759EB0050974F /* ShakaUITests.swift */,
-				B1631F2D2A1759EB0050974F /* ShakaUITestsLaunchTests.swift */,
+				B1631F2B2A1759EB0050974F /* CoffitUITests.swift */,
+				B1631F2D2A1759EB0050974F /* CoffitUITestsLaunchTests.swift */,
 			);
 			path = CoffitUITests;
 			sourceTree = "<group>";
@@ -498,8 +498,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1631F2E2A1759EB0050974F /* ShakaUITestsLaunchTests.swift in Sources */,
-				B1631F2C2A1759EB0050974F /* ShakaUITests.swift in Sources */,
+				B1631F2E2A1759EB0050974F /* CoffitUITestsLaunchTests.swift in Sources */,
+				B1631F2C2A1759EB0050974F /* CoffitUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
