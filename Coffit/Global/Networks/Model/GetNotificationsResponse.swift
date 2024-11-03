@@ -13,6 +13,7 @@ struct GetNotificationsResponse: Decodable {
     let lineSummary: String
     let keywords: [String]?
     let date: String
+    let isRead: Bool
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -20,5 +21,6 @@ struct GetNotificationsResponse: Decodable {
         case lineSummary = "line_summary"
         case keywords
         case date
+        case isRead
     }
 }

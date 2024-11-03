@@ -7,13 +7,14 @@
 
 import UIKit
 import SnapKit
+import Moya
 
 class HomeViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = setCollectionView()
     
     private var items: [HomeItem] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -47,12 +48,37 @@ extension HomeViewController {
     }
     
     private func fetchItems() {
-        // TODO: Implement API call to fetch items
-        items = [
-            HomeItem(title: "제목 1", summary: "한 줄 정리 1", keywords: ["키워드1", "키워드2"], date: Date(), isRead: false, content: Mock.markdown()),
-            HomeItem(title: "제목 2", summary: "한 줄 정리 2", keywords: ["키워드3", "키워드4"], date: Date().addingTimeInterval(-86400), isRead: true, content: Mock.markdown()),
-        ]
-        collectionView.reloadData()
+        let provider = MoyaProvider<NotificationAPI>()
+        
+        provider.request(.getRegiNotifications(request: GetNotificationsRequest(
+            userId: UserDefaults.getUserId(),
+            businessDataId: UserDefaults.getBusinessId()
+        ))) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let baseResponse = try response.map(BaseResponse<[GetNotificationsResponse]>.self)
+                    
+                    if let notifications = baseResponse.data {
+                        self.items = notifications.map { item in
+                            HomeItem(
+                                title: item.title,
+                                summary: item.lineSummary,
+                                keywords: item.keywords ?? [],
+                                date: item.date.toDate()!,
+                                isRead: item.isRead
+                            )
+                        }
+                        self.collectionView.reloadData()
+                    }
+                } catch {
+                    print("Decoding error: \(error)")
+                }
+            case .failure(let error):
+                print("Network error: \(error)")
+            }
+            
+        }
     }
 }
 
@@ -77,8 +103,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.item]
-        let detailVC = DetailViewController(title: item.title, markdownContent: item.content)
+        let detailVC = DetailViewController(title: item.title)
+        
         detailVC.modalPresentationStyle = .pageSheet
+        
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersGrabberVisible = true

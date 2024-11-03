@@ -19,6 +19,8 @@
 		4A64D1F32CD7EED1009C02D7 /* GetNotificationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1F22CD7EED1009C02D7 /* GetNotificationsRequest.swift */; };
 		4A64D1F52CD7EEE8009C02D7 /* GetNotificationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1F42CD7EEE8009C02D7 /* GetNotificationsResponse.swift */; };
 		4A64D1F72CD7F09B009C02D7 /* GetNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1F62CD7F09B009C02D7 /* GetNotificationResponse.swift */; };
+		4A64D1F92CD7F4C3009C02D7 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1F82CD7F4C3009C02D7 /* UserDefaults+Extension.swift */; };
+		4A64D1FB2CD7F8F8009C02D7 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1FA2CD7F8F8009C02D7 /* BaseResponse.swift */; };
 		4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */; };
 		4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */; };
 		4AF0FC452CC5500E0064C265 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC442CC5500E0064C265 /* HomeItem.swift */; };
@@ -76,6 +78,8 @@
 		4A64D1F22CD7EED1009C02D7 /* GetNotificationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotificationsRequest.swift; sourceTree = "<group>"; };
 		4A64D1F42CD7EEE8009C02D7 /* GetNotificationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotificationsResponse.swift; sourceTree = "<group>"; };
 		4A64D1F62CD7F09B009C02D7 /* GetNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotificationResponse.swift; sourceTree = "<group>"; };
+		4A64D1F82CD7F4C3009C02D7 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		4A64D1FA2CD7F8F8009C02D7 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4A9B1A4E2CBEA7B6004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4AD543D62CBEA9FA00AFAEE8 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				4A64D1F22CD7EED1009C02D7 /* GetNotificationsRequest.swift */,
 				4A64D1F42CD7EEE8009C02D7 /* GetNotificationsResponse.swift */,
 				4A64D1F62CD7F09B009C02D7 /* GetNotificationResponse.swift */,
+				4A64D1FA2CD7F8F8009C02D7 /* BaseResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				B1631F582A175F470050974F /* Notification.Name+Extension.swift */,
 				B1631F5A2A175F850050974F /* UITextField+Extension.swift */,
 				B1631F5C2A175F9C0050974F /* Date+Extension.swift */,
+				4A64D1F82CD7F4C3009C02D7 /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A64D1ED2CD7EC3F009C02D7 /* RegisterUserResponse.swift in Sources */,
+				4A64D1F92CD7F4C3009C02D7 /* UserDefaults+Extension.swift in Sources */,
 				B1631F542A175F090050974F /* UIImageView+Extension.swift in Sources */,
 				B1631F502A175E840050974F /* String+Extension.swift in Sources */,
 				B1A7C7592C95780B0020E9BA /* Bundle.swift in Sources */,
@@ -531,6 +538,7 @@
 				4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */,
 				4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */,
 				B1631F5B2A175F860050974F /* UITextField+Extension.swift in Sources */,
+				4A64D1FB2CD7F8F8009C02D7 /* BaseResponse.swift in Sources */,
 				4A64D1F12CD7EE30009C02D7 /* NotificationAPI.swift in Sources */,
 				4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */,
 				4AF0FC452CC5500E0064C265 /* HomeItem.swift in Sources */,
