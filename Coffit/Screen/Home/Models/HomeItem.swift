@@ -8,6 +8,7 @@
 import Foundation
 
 struct HomeItem {
+    let id: Int
     let title: String
     let summary: String
     let keywords: [String]
