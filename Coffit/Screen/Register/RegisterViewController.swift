@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Moya
 
 class RegisterViewController: UIViewController {
     
@@ -294,6 +295,67 @@ extension RegisterViewController {
     
     // MARK: - Business Logic
     @objc private func submit() {
+        let provider = MoyaProvider<UserAPI>()
+        
+        let businessType = businessTypeSegmentedControl.selectedSegmentIndex == 0 ? "개인사업자" : "법인사업자"
+        
+        let corporationType: String
+        switch businessStatusSegmentedControl.selectedSegmentIndex {
+        case 0:
+            corporationType = "창업"
+        case 1:
+            corporationType = "재창업"
+        default:
+            corporationType = "기존 사업자"
+        }
+        
+        let selectedIndustry = industryOptions[industryPicker.selectedRow(inComponent: 0)]
+        
+        let city = Array(regionData.keys).sorted()[cityPicker.selectedRow(inComponent: 0)]
+        let district = regionData[city]?[districtPicker.selectedRow(inComponent: 0)] ?? ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let birthday = dateFormatter.string(from: birthDatePicker.date)
+        
+        let gender = genderSegmentedControl.selectedSegmentIndex == 0 ? "남" : "여"
+        
+        let revenue = Float(salesTextField.text ?? "0") ?? 0
+        let employees = Int(employeeCountTextField.text ?? "0") ?? 0
+        
+        provider.request(.register(request: RegisterUserRequest(
+            businessType: businessType,
+            corporationType: corporationType,
+            industry: selectedIndustry,
+            regionCity: city,
+            regionDistrict: district,
+            representativeBirthday: birthday,
+            representativeGender: gender,
+            revenue: revenue,
+            employees: employees
+        ))) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let baseResponse = try response.map(BaseResponse<RegisterUserResponse>.self)
+                    
+                    if let data = baseResponse.data {
+                        UserDefaults.setUserId(data.id)
+                        UserDefaults.setBusinessId(data.businessDataId)
+                        self.moveToHomeView()
+                    }
+                    
+                    print("Parsing error: \(baseResponse)")
+                } catch {
+                    print("Decoding error: \(error)")
+                }
+            case .failure(let error):
+                print("Network error: \(error)")
+            }
+        }
+    }
+    
+    private func moveToHomeView() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate,
            
