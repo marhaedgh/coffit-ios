@@ -140,3 +140,5 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,swift,cocoapods
+
+Coffit.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
