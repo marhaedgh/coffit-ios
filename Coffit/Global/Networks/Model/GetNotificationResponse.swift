@@ -14,7 +14,7 @@ struct GetNotificationResponse: Codable {
     let keywords: [String]?
     let whatToDo: String
     let date: String
-    let content: String?
+    let content: String
     
     enum CodingKeys: String, CodingKey {
         case id, title, summary, keywords, date, content
