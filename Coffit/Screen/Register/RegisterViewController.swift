@@ -10,10 +10,18 @@ import SnapKit
 
 class RegisterViewController: UIViewController {
     
+    private let industryOptions = Industry.sector
+    private let regionData = Region.data
+    
+    private var selectedCity: String? {
+        didSet {
+            districtPicker.reloadAllComponents()
+        }
+    }
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    // MARK: - Properties
     private let businessTypeSegmentedControl = UISegmentedControl(items: ["개인사업자", "법인사업자"])
     private let businessStatusSegmentedControl = UISegmentedControl(items: ["창업", "재창업", "기존 사업자"])
     private let industryPicker = UIPickerView()
@@ -28,40 +36,6 @@ class RegisterViewController: UIViewController {
     private let salesTextField = UITextField()
     private let employeeCountTextField = UITextField()
     
-    private let industryOptions = [
-        "자동차 및 부품 판매업", "도매 및 상품 중개업", "소매업(자동차 제외)",
-        "숙박업", "음식점업", "제조업", "교육 서비스업",
-        "협회 및 단체, 수리 및 기타 개인 서비스업", "부동산업",
-        "전문, 과학 및 기술 서비스업", "예술, 스포츠 및 여가 관련 서비스업",
-        "정보통신업", "농업, 임업 및 어업", "건설업", "운수 및 창고업",
-        "보건업 및 사회복지 서비스업", "사업시설 관리, 사업 지원 및 임대 서비스업",
-        "금융 및 보험업", "전기, 가스, 증기 및 공기 조절 공급업", "광업",
-        "수도, 하수 및 폐기물 처리, 원료 재생업",
-        "가구 내 고용활동 및 달리 분류되지 않은 자가 소비 생산활동",
-        "공공 행정, 국방 및 사회보장 행정", "국제 및 외국기관"
-    ]
-    
-    private let regionData: [String: [String]] = [
-        "서울특별시": ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
-                   "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구",
-                   "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"],
-        "부산광역시": ["강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구", "사상구",
-                   "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구", "기장군"],
-        "대구광역시": ["남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군"],
-        "인천광역시": ["계양구", "남동구", "동구", "미추홀구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"],
-        "광주광역시": ["광산구", "남구", "동구", "북구", "서구"],
-        "대전광역시": ["대덕구", "동구", "서구", "유성구", "중구"],
-        "울산광역시": ["남구", "동구", "북구", "중구", "울주군"],
-        "세종특별자치시": ["세종시"]
-        // 나머지 시도 추가 가능
-    ]
-    
-    private var selectedCity: String? {
-        didSet {
-            districtPicker.reloadAllComponents()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -75,6 +49,7 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController {
+    // MARK: - UI
     private func setupUI() {
         view.backgroundColor = .secondarySystemBackground
         
@@ -317,6 +292,7 @@ extension RegisterViewController {
         }
     }
     
+    // MARK: - Business Logic
     @objc private func submit() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate,
@@ -365,6 +341,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension RegisterViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         view.endEditing(true)
