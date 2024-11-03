@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A57EC7A2CC5375200A21F0A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57EC792CC5375200A21F0A /* RegisterViewController.swift */; };
+		4A64D1E42CD7E57B009C02D7 /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1E32CD7E518009C02D7 /* Industry.swift */; };
+		4A64D1E52CD7E581009C02D7 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1E22CD7E4D1009C02D7 /* Region.swift */; };
 		4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */; };
 		4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */; };
 		4AF0FC452CC5500E0064C265 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC442CC5500E0064C265 /* HomeItem.swift */; };
@@ -55,9 +57,10 @@
 
 /* Begin PBXFileReference section */
 		4A57EC792CC5375200A21F0A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4A64D1E22CD7E4D1009C02D7 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		4A64D1E32CD7E518009C02D7 /* Industry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
 		4A9B1A4C2CBEA747004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4A9B1A4E2CBEA7B6004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
-		4A9B1A502CBEA7C1004990F9 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4AD543D62CBEA9FA00AFAEE8 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -281,7 +284,8 @@
 		B1631F5E2A175FD00050974F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4A9B1A502CBEA7C1004990F9 /* .keep */,
+				4A64D1E32CD7E518009C02D7 /* Industry.swift */,
+				4A64D1E22CD7E4D1009C02D7 /* Region.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -470,10 +474,12 @@
 				B1631F0B2A1759EA0050974F /* AppDelegate.swift in Sources */,
 				B1631F4C2A175DC80050974F /* NSMutableAttributedString+Extension.swift in Sources */,
 				B1631F592A175F470050974F /* Notification.Name+Extension.swift in Sources */,
+				4A64D1E52CD7E581009C02D7 /* Region.swift in Sources */,
 				B1631F522A175EDB0050974F /* UIResponder+Extension.swift in Sources */,
 				B1631F482A175C780050974F /* UIView+Extension.swift in Sources */,
 				B1631F4A2A175D5C0050974F /* UIButton+Extension.swift in Sources */,
 				4AF0FC482CC55CCC0064C265 /* DetailViewController.swift in Sources */,
+				4A64D1E42CD7E57B009C02D7 /* Industry.swift in Sources */,
 				4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */,
 				4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */,
 				B1631F5B2A175F860050974F /* UITextField+Extension.swift in Sources */,
