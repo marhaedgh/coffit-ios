@@ -71,7 +71,6 @@ class DetailViewController: UIViewController {
     }
     
     private func fetchData() {
-        let markdownContent = "" // TODO: fetch from server
         let provider = MoyaProvider<NotificationAPI>()
         
         provider.request(.getNotification(id: notificationId)) { (result) in
