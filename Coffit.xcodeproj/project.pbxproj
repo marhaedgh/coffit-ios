@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A57EC7A2CC5375200A21F0A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57EC792CC5375200A21F0A /* RegisterViewController.swift */; };
+		4A64D1E12CD7BC18009C02D7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4A64D1E02CD7BC18009C02D7 /* Moya */; };
 		4A64D1E42CD7E57B009C02D7 /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1E32CD7E518009C02D7 /* Industry.swift */; };
 		4A64D1E52CD7E581009C02D7 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1E22CD7E4D1009C02D7 /* Region.swift */; };
 		4AF0FC3E2CC54F5D0064C265 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */; };
@@ -100,6 +101,7 @@
 			files = (
 				4AF0FC4B2CC55DFD0064C265 /* MarkdownKit in Frameworks */,
 				B1AD99832BC2EC80005AA45B /* SnapKit in Frameworks */,
+				4A64D1E12CD7BC18009C02D7 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +350,7 @@
 			packageProductDependencies = (
 				B1AD99822BC2EC80005AA45B /* SnapKit */,
 				4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */,
+				4A64D1E02CD7BC18009C02D7 /* Moya */,
 			);
 			productName = ZKFace;
 			productReference = B1631F072A1759EA0050974F /* Coffit.app */;
@@ -424,6 +427,7 @@
 			packageReferences = (
 				B1AD99812BC2EC80005AA45B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */,
+				4A64D1DF2CD7BC18009C02D7 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = B1631F082A1759EA0050974F /* Products */;
 			projectDirPath = "";
@@ -835,6 +839,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4A64D1DF2CD7BC18009C02D7 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bmoliveira/MarkdownKit.git";
@@ -854,6 +866,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A64D1E02CD7BC18009C02D7 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A64D1DF2CD7BC18009C02D7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4AF0FC492CC55D0B0064C265 /* XCRemoteSwiftPackageReference "MarkdownKit" */;
