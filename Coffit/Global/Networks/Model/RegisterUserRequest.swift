@@ -12,4 +12,8 @@ struct RegisterUserRequest: Encodable {
     let corporationType: String
     let industry: String
     // TODO: 추가
+    
+    enum CodingKeys: String, CodingKey {
+        case businessType, corporationType, industry
+    }
 }
