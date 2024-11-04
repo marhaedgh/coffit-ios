@@ -48,38 +48,8 @@ extension HomeViewController {
     }
     
     private func fetchItems() {
-        let provider = MoyaProvider<NotificationAPI>()
-        
-        provider.request(.getRegiNotifications(request: GetNotificationsRequest(
-            userId: UserDefaults.getUserId(),
-            businessDataId: UserDefaults.getBusinessId()
-        ))) { (result) in
-            switch result {
-            case .success(let response):
-                do {
-                    let baseResponse = try response.map(BaseResponse<[GetNotificationsResponse]>.self)
-                    
-                    if let notifications = baseResponse.data {
-                        self.items = notifications.map { item in
-                            HomeItem(
-                                id: item.id,
-                                title: item.title,
-                                summary: item.lineSummary,
-                                keywords: item.keywords ?? [],
-                                date: item.date.toDate()!,
-                                isRead: item.isRead
-                            )
-                        }
-                        self.collectionView.reloadData()
-                    }
-                } catch {
-                    print("Decoding error: \(error)")
-                }
-            case .failure(let error):
-                print("Network error: \(error)")
-            }
-            
-        }
+        items = Mock.homeItem()
+        collectionView.reloadData()
     }
 }
 

@@ -71,23 +71,6 @@ class DetailViewController: UIViewController {
     }
     
     private func fetchData() {
-        let provider = MoyaProvider<NotificationAPI>()
-        
-        provider.request(.getNotification(id: notificationId)) { (result) in
-            switch result {
-            case .success(let response):
-                do {
-                    let baseResponse = try response.map(BaseResponse<GetNotificationResponse>.self)
-                    
-                    if let data = baseResponse.data {
-                        self.setupMarkdownContent(data.content)
-                    }
-                } catch {
-                    print("Decoding error: \(error)")
-                }
-            case .failure(let error):
-                print("Network error: \(error)")
-            }
-        }
+        setupMarkdownContent(Mock.markdown(notificationId))
     }
 }
