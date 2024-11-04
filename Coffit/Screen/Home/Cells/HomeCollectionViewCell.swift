@@ -43,7 +43,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     private let keywordsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .systemBlue
+        label.textColor = .tintColor
         return label
     }()
     
@@ -56,7 +56,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     private let readIndicator: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .tintColor
         view.layer.cornerRadius = 4
         return view
     }()
