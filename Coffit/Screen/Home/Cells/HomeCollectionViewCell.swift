@@ -37,6 +37,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 2
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
