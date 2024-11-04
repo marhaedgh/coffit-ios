@@ -16,7 +16,8 @@ class DetailViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.lineBreakMode = .byCharWrapping
         label.numberOfLines = 0
         return label
     }()
@@ -24,11 +25,10 @@ class DetailViewController: UIViewController {
     private let textView: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
-        textView.font = UIFont.systemFont(ofSize: 16)
         return textView
     }()
     
-    private let markdownParser = MarkdownParser()
+    private let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 14))
     
     init(id: Int, title: String) {
         super.init(nibName: nil, bundle: nil)
@@ -53,7 +53,7 @@ class DetailViewController: UIViewController {
         view.addSubview(textView)
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         

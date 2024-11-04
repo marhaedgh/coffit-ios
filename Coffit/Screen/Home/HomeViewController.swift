@@ -26,7 +26,7 @@ extension HomeViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
-        navigationItem.title = "내 정보 모음"
+        navigationItem.title = "My Coffit ☕️"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -99,7 +99,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 100) // Adjust height as needed
+        return CGSize(width: collectionView.bounds.width, height: 120) // Adjust height as needed
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
