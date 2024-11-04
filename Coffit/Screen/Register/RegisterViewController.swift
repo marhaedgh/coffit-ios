@@ -282,7 +282,7 @@ extension RegisterViewController {
         config.title = "등록하기"
         
         let button = UIButton(configuration: config, primaryAction: UIAction(handler: { [weak self] _ in
-            self?.submit()
+            self?.moveToHomeView()
         }))
         
         contentView.addSubview(button)
