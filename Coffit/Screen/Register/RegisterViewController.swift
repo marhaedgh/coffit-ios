@@ -35,6 +35,7 @@ class RegisterViewController: UIViewController {
     private let genderSegmentedControl = UISegmentedControl(items: ["남성", "여성"])
     
     private let salesTextField = UITextField()
+    private let salesDescriptionLabel = UILabel()
     private let employeeCountTextField = UITextField()
     
     override func viewDidLoad() {
@@ -77,6 +78,10 @@ extension RegisterViewController {
         salesTextField.placeholder = "연간 매출액 (단위: 원)"
         salesTextField.borderStyle = .roundedRect
         salesTextField.keyboardType = .numberPad
+        salesTextField.addTarget(self, action: #selector(salesTextFieldDidChange), for: .editingChanged)
+        
+        salesDescriptionLabel.font = .systemFont(ofSize: 12)
+        salesDescriptionLabel.textColor = .gray
         
         employeeCountTextField.placeholder = "종업원 수"
         employeeCountTextField.borderStyle = .roundedRect
@@ -158,14 +163,6 @@ extension RegisterViewController {
         titleLabel.text = "지역:"
         titleLabel.font = .systemFont(ofSize: 16, weight: .medium)
         
-        let cityLabel = UILabel()
-        cityLabel.text = "시/도"
-        cityLabel.font = .systemFont(ofSize: 14)
-        
-        let districtLabel = UILabel()
-        districtLabel.text = "구/군"
-        districtLabel.font = .systemFont(ofSize: 14)
-        
         selectedCity = "광주광역시"
         
         regionStackView.axis = .horizontal
@@ -202,6 +199,7 @@ extension RegisterViewController {
         
         contentView.addSubview(salesLabel)
         contentView.addSubview(salesTextField)
+        contentView.addSubview(salesDescriptionLabel)
         contentView.addSubview(employeeLabel)
         contentView.addSubview(employeeCountTextField)
         
@@ -216,8 +214,13 @@ extension RegisterViewController {
             make.height.equalTo(44)
         }
         
+        salesDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(salesTextField.snp.bottom).offset(4)
+            make.horizontalEdges.equalTo(contentView).inset(20)
+        }
+        
         employeeLabel.snp.makeConstraints { make in
-            make.top.equalTo(salesTextField.snp.bottom).offset(20)
+            make.top.equalTo(salesDescriptionLabel.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(contentView).inset(20)
         }
         
@@ -294,6 +297,39 @@ extension RegisterViewController {
     }
     
     // MARK: - Business Logic
+    @objc private func salesTextFieldDidChange() {
+        guard let text = salesTextField.text?.replacingOccurrences(of: ",", with: ""),
+              let number = Int(text) else {
+            salesDescriptionLabel.text = ""
+            return
+        }
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        salesTextField.text = numberFormatter.string(from: NSNumber(value: number))
+        
+        salesDescriptionLabel.text = convertNumberToKorean(number)
+    }
+    
+    private func convertNumberToKorean(_ number: Int) -> String {
+        let units = ["", "만", "억"]
+        var result = ""
+        var num = number
+        var unitIndex = 0
+        
+        while num > 0 && unitIndex < units.count {
+            let part = num % 10000
+            if part > 0 {
+                let partString = part == 1 && unitIndex > 0 ? "" : "\(part)"
+                result = "\(partString)\(units[unitIndex])" + (result.isEmpty ? "" : " ") + result
+            }
+            num /= 10000
+            unitIndex += 1
+        }
+
+        return "\(result)원"
+    }
+    
     @objc private func submit() {
         let provider = MoyaProvider<UserAPI>()
         
@@ -320,7 +356,7 @@ extension RegisterViewController {
         
         let gender = genderSegmentedControl.selectedSegmentIndex == 0 ? "남" : "여"
         
-        let revenue = Float(salesTextField.text ?? "0") ?? 0
+        let revenue = Float(salesTextField.text?.replacingOccurrences(of: ",", with: "") ?? "0") ?? 0
         let employees = Int(employeeCountTextField.text ?? "0") ?? 0
         
         provider.request(.register(request: RegisterUserRequest(
@@ -358,7 +394,6 @@ extension RegisterViewController {
     private func moveToHomeView() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate,
-           
            let window = sceneDelegate.window {
             window.rootViewController = UINavigationController(rootViewController: HomeViewController())
             window.makeKeyAndVisible()
@@ -409,4 +444,3 @@ extension RegisterViewController: UIScrollViewDelegate {
         view.endEditing(true)
     }
 }
-
