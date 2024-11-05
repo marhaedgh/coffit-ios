@@ -15,7 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = UINavigationController(rootViewController: RegisterViewController())
+        if UserDefaults.getUserId() == 0 {
+            window?.rootViewController = UINavigationController(rootViewController: RegisterViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        }
         window?.makeKeyAndVisible()
         
         windowScene.sizeRestrictions?.maximumSize = CGSize(width: 450, height: 9000)
