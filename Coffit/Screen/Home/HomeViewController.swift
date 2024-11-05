@@ -18,7 +18,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchItems()
+//        fetchItems()
+        fetchMockItems()
     }
 }
 
@@ -81,6 +82,11 @@ extension HomeViewController {
             
         }
     }
+    
+    private func fetchMockItems() {
+        items = Mock.homeItem()
+        collectionView.reloadData()
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -104,22 +110,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.item]
-        let detailVC = DetailViewController(id: item.id, title: item.title)
+//        let detailVC = DetailViewController(id: item.id, title: item.title)
+        let detailVC = WebViewController(urlString: "http://localhost:8501/?first_key=1&second_key=two&third_key=true")
         
         detailVC.modalPresentationStyle = .pageSheet
         
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersGrabberVisible = true
-            sheet.selectedDetentIdentifier = .medium
-            
-            //뒤 배경 흐리게 제거 (기본 값은 모든 크기에서 배경 흐리게 됨)
-            //sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.selectedDetentIdentifier = .large
         }
         present(detailVC, animated: true)
         
         // 읽음 표시 업데이트
-        items[indexPath.item].isRead = true
+        items[indexPath.item].isRead = true // TODO: API 연결
         collectionView.reloadItems(at: [indexPath])
     }
 }
