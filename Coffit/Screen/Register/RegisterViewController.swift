@@ -376,7 +376,7 @@ extension RegisterViewController {
                     let baseResponse = try response.map(BaseResponse<RegisterUserResponse>.self)
                     
                     if let data = baseResponse.data {
-                        UserDefaults.setUserId(data.id)
+                        UserDefaults.setUserId(data.userId)
                         UserDefaults.setBusinessId(data.businessDataId)
                         self.moveToHomeView()
                     }

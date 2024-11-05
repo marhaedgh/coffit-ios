@@ -8,11 +8,11 @@
 import Foundation
 
 struct RegisterUserResponse: Decodable {
-    let id: Int
+    let userId: Int
     let businessDataId: Int
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case userId = "user_id"
         case businessDataId = "business_data_id"
     }
 }

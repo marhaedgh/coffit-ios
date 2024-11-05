@@ -17,14 +17,14 @@ extension UserAPI: BaseTargetType {
     var path: String {
         switch self {
         case .register:
-            return "/"
+            return "user/"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .register:
-            return .get
+            return .post
         }
     }
     

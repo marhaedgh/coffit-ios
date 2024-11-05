@@ -50,7 +50,7 @@ extension HomeViewController {
     private func fetchItems() {
         let provider = MoyaProvider<NotificationAPI>()
         
-        provider.request(.getRegiNotifications(request: GetNotificationsRequest(
+        provider.request(.getNotifications(request: GetNotificationsRequest(
             userId: UserDefaults.getUserId(),
             businessDataId: UserDefaults.getBusinessId()
         ))) { (result) in
