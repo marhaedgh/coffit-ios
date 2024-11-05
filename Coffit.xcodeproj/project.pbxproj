@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1382AD2CDAA6AA00A8C2F8 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1382AC2CDAA63C00A8C2F8 /* Mock.swift */; };
 		4A57EC7A2CC5375200A21F0A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57EC792CC5375200A21F0A /* RegisterViewController.swift */; };
 		4A64D1E12CD7BC18009C02D7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4A64D1E02CD7BC18009C02D7 /* Moya */; };
 		4A64D1E42CD7E57B009C02D7 /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1E32CD7E518009C02D7 /* Industry.swift */; };
@@ -26,7 +27,6 @@
 		4AF0FC452CC5500E0064C265 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC442CC5500E0064C265 /* HomeItem.swift */; };
 		4AF0FC482CC55CCC0064C265 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC472CC55CCC0064C265 /* DetailViewController.swift */; };
 		4AF0FC4B2CC55DFD0064C265 /* MarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF0FC4A2CC55DFD0064C265 /* MarkdownKit */; };
-		4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0FC4C2CC55E850064C265 /* Mock.swift */; };
 		B1631F0B2A1759EA0050974F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0A2A1759EA0050974F /* AppDelegate.swift */; };
 		B1631F0D2A1759EA0050974F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1631F0C2A1759EA0050974F /* SceneDelegate.swift */; };
 		B1631F142A1759EB0050974F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1631F132A1759EB0050974F /* Assets.xcassets */; };
@@ -86,7 +86,6 @@
 		4AF0FC412CC54FC60064C265 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AF0FC442CC5500E0064C265 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		4AF0FC472CC55CCC0064C265 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		4AF0FC4C2CC55E850064C265 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		B1631F072A1759EA0050974F /* Coffit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1631F0A2A1759EA0050974F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1631F0C2A1759EA0050974F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 				4AF0FC432CC54FF20064C265 /* Models */,
 				4AF0FC3F2CC54FAF0064C265 /* Cells */,
 				4AF0FC3D2CC54F5D0064C265 /* HomeViewController.swift */,
-				4AF0FC4C2CC55E850064C265 /* Mock.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -525,6 +523,7 @@
 				4A64D1F52CD7EEE8009C02D7 /* GetNotificationsResponse.swift in Sources */,
 				B1631F4E2A175E350050974F /* UIStackView+Extension.swift in Sources */,
 				4A64D1F32CD7EED1009C02D7 /* GetNotificationsRequest.swift in Sources */,
+				4A1382AD2CDAA6AA00A8C2F8 /* Mock.swift in Sources */,
 				B1631F0B2A1759EA0050974F /* AppDelegate.swift in Sources */,
 				B1631F4C2A175DC80050974F /* NSMutableAttributedString+Extension.swift in Sources */,
 				B1631F592A175F470050974F /* Notification.Name+Extension.swift in Sources */,
@@ -535,7 +534,6 @@
 				B1631F4A2A175D5C0050974F /* UIButton+Extension.swift in Sources */,
 				4AF0FC482CC55CCC0064C265 /* DetailViewController.swift in Sources */,
 				4A64D1E42CD7E57B009C02D7 /* Industry.swift in Sources */,
-				4AF0FC4D2CC55E850064C265 /* Mock.swift in Sources */,
 				4AF0FC422CC54FC60064C265 /* HomeCollectionViewCell.swift in Sources */,
 				B1631F5B2A175F860050974F /* UITextField+Extension.swift in Sources */,
 				4A64D1FB2CD7F8F8009C02D7 /* BaseResponse.swift in Sources */,

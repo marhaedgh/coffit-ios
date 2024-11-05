@@ -5,6 +5,9 @@
 //  Created by danna.x-PC on 11/6/24.
 //
 
+import Foundation
+
+
 class Mock {
     static func homeItem() -> [HomeItem] {
         return [
