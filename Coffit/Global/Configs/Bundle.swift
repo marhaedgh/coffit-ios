@@ -8,7 +8,8 @@
 import Foundation
 
 enum Config: String {
-    case baseURL = "BASE_URL"
+    case apiBaseURL = "API_BASE_URL"
+    case chatBaseURL = "CHAT_BASE_URL"
     case appVersion = "CFBundleShortVersionString"
     case appId = "APP_ID"
 }
@@ -37,8 +38,12 @@ extension Bundle {
         return identifier
     }
     
-    static var baseURL: String {
-        return getString(forKey: Config.baseURL.rawValue)
+    static var apiBaseURL: String {
+        return getString(forKey: Config.apiBaseURL.rawValue)
+    }
+    
+    static var chatBaseURL: String {
+        return getString(forKey: Config.chatBaseURL.rawValue)
     }
     
     static var appVersion: String {
