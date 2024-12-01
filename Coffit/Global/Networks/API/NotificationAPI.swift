@@ -33,13 +33,14 @@ extension NotificationAPI: BaseTargetType {
     var task: Moya.Task {
         switch self {
         case .getNotifications(let request):
-            return .requestParameters(
-                parameters: [
-                    "user_id": request.userId,
-                    "business_data_id": request.businessDataId
-                ],
-                encoding: URLEncoding.default
-            )
+//            return .requestParameters(
+//                parameters: [
+//                    "user_id": request.userId,
+//                    "business_data_id": request.businessDataId
+//                ],
+//                encoding: URLEncoding.default
+//            )
+            return .requestPlain
         case .getNotification:
             return .requestPlain
         }

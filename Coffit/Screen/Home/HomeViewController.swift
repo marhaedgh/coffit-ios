@@ -18,8 +18,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        fetchItems()
-        fetchMockItems()
+        fetchItems()
+//        fetchMockItems()
     }
 }
 
@@ -67,7 +67,8 @@ extension HomeViewController {
                                 title: item.title,
                                 summary: item.lineSummary,
                                 keywords: item.keywords ?? [],
-                                date: item.date.toDate()!,
+//                                date: item.date.toDate()!,
+                                date: Date.now,
                                 isRead: item.isRead
                             )
                         }

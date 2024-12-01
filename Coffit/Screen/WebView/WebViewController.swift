@@ -17,6 +17,7 @@ class WebViewController: UIViewController {
     init(urlString: String) {
         super.init(nibName: nil, bundle: nil)
         self.urlString = urlString
+        print("WebView url: \(urlString)")
     }
     
     required init?(coder: NSCoder) {
