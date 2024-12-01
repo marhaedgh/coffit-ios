@@ -77,9 +77,9 @@ class Mock {
             ),
             HomeItem(
                 id: 9,
-                title: "청년 창업 숙박업체 지원 사업",
-                summary: "청년 사장님들! 청년 창업자들을 위한 숙박업체 지원 사업이 시작됩니다. 🚀",
-                keywords: ["#청년창업", "#숙박업체", "#지원사업"],
+                title: "중장년 창업 숙박업체 지원 사업",
+                summary: "중장년 사장님들! 중장년 창업자들을 위한 숙박업체 지원 사업이 시작됩니다. 🚀",
+                keywords: ["#중장년창업", "#숙박업체", "#지원사업"],
                 date: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 18))!,
                 isRead: false
             ),

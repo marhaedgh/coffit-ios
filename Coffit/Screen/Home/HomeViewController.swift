@@ -72,6 +72,7 @@ extension HomeViewController {
                                 isRead: item.isRead
                             )
                         }
+                        self.items.append(contentsOf: Mock.homeItem())
                         self.collectionView.reloadData()
                     }
                 } catch {
