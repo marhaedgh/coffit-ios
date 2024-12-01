@@ -30,6 +30,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -52,6 +53,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .secondaryLabel
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         return label
     }()
     
