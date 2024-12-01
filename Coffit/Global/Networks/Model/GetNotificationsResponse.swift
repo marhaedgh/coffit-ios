@@ -21,6 +21,6 @@ struct GetNotificationsResponse: Decodable {
         case lineSummary = "line_summary"
         case keywords
         case date
-        case isRead
+        case isRead = "is_read"
     }
 }
