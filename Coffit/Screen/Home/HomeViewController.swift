@@ -111,10 +111,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.item]
-        let userId = UserDefaults.getUserId()
         let notificationId = item.id
         
-        let detailVC = WebViewController(urlString: "\(Bundle.chatBaseURL)/?user_id=\(userId)&notification_id=\(notificationId)")
+        let detailVC = WebViewController(
+            urlString: "\(Bundle.chatBaseURL)/?alert_id=\(notificationId)"
+        )
         
         detailVC.modalPresentationStyle = .pageSheet
         
