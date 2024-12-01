@@ -38,6 +38,8 @@ class RegisterViewController: UIViewController {
     private let salesDescriptionLabel = UILabel()
     private let employeeCountTextField = UITextField()
     
+    private lazy var submitButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -284,13 +286,13 @@ extension RegisterViewController {
         config.buttonSize = .large
         config.title = "등록하기"
         
-        let button = UIButton(configuration: config, primaryAction: UIAction(handler: { [weak self] _ in
+        submitButton = UIButton(configuration: config, primaryAction: UIAction(handler: { [weak self] _ in
             self?.submit()
         }))
         
-        contentView.addSubview(button)
+        contentView.addSubview(submitButton)
         
-        button.snp.makeConstraints { make in
+        submitButton.snp.makeConstraints { make in
             make.top.equalTo(genderSegmentedControl.snp.bottom).offset(40)
             make.horizontalEdges.equalTo(contentView).inset(20)
         }
@@ -359,6 +361,7 @@ extension RegisterViewController {
         let revenue = Float(salesTextField.text?.replacingOccurrences(of: ",", with: "") ?? "0") ?? 0
         let employees = Int(employeeCountTextField.text ?? "0") ?? 0
         
+        submitButton.isLoading = true
         provider.request(.register(request: RegisterUserRequest(
             businessType: businessType,
             corporationType: corporationType,
@@ -388,6 +391,8 @@ extension RegisterViewController {
             case .failure(let error):
                 print("Network error: \(error)")
             }
+            
+            self.submitButton.isLoading = false
         }
     }
     
